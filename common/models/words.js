@@ -1,39 +1,43 @@
 'use strict';
 
+const Translate = require('@google-cloud/translate');
+
+// Your Google Cloud Platform project ID
+const projectId = 'learn-words-1529040299992';
+
+// Instantiates a client
+const translate = new Translate({
+  projectId: projectId,
+});
+
 module.exports = function(Words) {
-  Words.translate = function(cb) {
-    const Translate = require('@google-cloud/translate');
-    const translate = new Translate();
-    const text = 'The text to translate, e.g. Hello, world!';
-    const target = 'The target language, e.g. ru';
-    console.log(target)
-    cb(null, target);
+  Words.translate = function(text, cb) {
+    const target = 'uk';
     translate
       .translate(text, target)
       .then(results => {
-        let translations = results[0];
-        translations = Array.isArray(translations)
-          ? translations
-          : [translations];
-        console.log('Translations:');
-        translations.forEach((translation, i) => {
-          console.log(`${text[i]} => (${target}) ${translation}`);
-        });
+        const translation = results[0];
+        cb(null, translation);
       })
       .catch(err => {
         console.error('ERROR:', err);
       });
-  }
+  };
+
   Words.remoteMethod(
     'translate', {
       http: {
         path: '/translate',
-        verb: 'get'
+        verb: 'post',
+      },
+      accepts: {
+        arg: 'text',
+        type: 'string',
       },
       returns: {
         arg: 'translation',
-        type: 'string'
-      }
+        type: 'string',
+      },
     }
   );
 };
