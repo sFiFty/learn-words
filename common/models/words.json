@@ -6,11 +6,11 @@
     "validateUpsert": true
   },
   "properties": {
-    "Name": {
+    "Ua": {
       "type": "string",
       "required": true
     },
-    "Translation": {
+    "En": {
       "type": "string",
       "required": true
     },
