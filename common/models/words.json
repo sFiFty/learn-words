@@ -6,11 +6,15 @@
     "validateUpsert": true
   },
   "properties": {
-    "Ua": {
+    "Text": {
       "type": "string",
       "required": true
     },
-    "En": {
+    "Translation": {
+      "type": "string",
+      "required": true
+    },
+    "Language": {
       "type": "string",
       "required": true
     },

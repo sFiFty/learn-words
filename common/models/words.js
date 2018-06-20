@@ -11,10 +11,10 @@ const translate = new Translate({
 });
 
 module.exports = function(Words) {
-  Words.translate = function(text, cb) {
-    const target = 'uk';
+  Words.translate = function(data, cb) {
+    const target = data.language;
     translate
-      .translate(text, target)
+      .translate(data.text, target)
       .then(results => {
         const translation = results[0];
         cb(null, translation);
@@ -32,7 +32,7 @@ module.exports = function(Words) {
       },
       accepts: {
         arg: 'text',
-        type: 'string',
+        type: 'object',
       },
       returns: {
         arg: 'translation',
