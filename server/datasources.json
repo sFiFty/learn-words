@@ -1,6 +1,11 @@
 {
   "db": {
     "name": "db",
-    "connector": "mysql"
+    "connector": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "database": "learn-words",
+    "username": "<USER_NAME>",
+    "password": "<PASSWORD>"
   }
 }
