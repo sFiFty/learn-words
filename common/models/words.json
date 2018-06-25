@@ -8,19 +8,42 @@
   "properties": {
     "Text": {
       "type": "string",
-      "required": true
+      "required": true,
+      "mysql": {
+        "columnName":"TEXT",
+        "dataType":"VARCHAR",
+        "dataLength": 255,
+        "nullable":"N"
+      }
     },
     "Translation": {
       "type": "string",
-      "required": true
+      "required": true,
+      "mysql": {
+        "columnName":"TRANSLATION",
+        "dataType":"VARCHAR",
+        "dataLength": 255,
+        "nullable":"N"
+      }
     },
     "Language": {
       "type": "string",
-      "required": true
+      "required": true,
+      "mysql": {
+        "columnName":"LANGUAGE",
+        "dataType":"VARCHAR",
+        "dataLength": 255,
+        "nullable":"N"
+      }
     },
     "Date": {
       "type": "date",
-      "required": true
+      "required": true,
+      "mysql": {
+        "columnName":"DATE",
+        "dataType":"DATE",
+        "nullable":"N"
+      }
     }
   },
   "validations": [],
